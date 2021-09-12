@@ -1,5 +1,6 @@
 var main_char;
 var num = 0;
+var sonido = true;
 
 window.onload = showSections;
 
@@ -59,6 +60,7 @@ function changeFunc() {
 }
 
 function showText(numero){
+    
     num = numero;
     const script = document.querySelectorAll("p[style='margin-left: 94px; text-indent: -94px;']");
     var character = script[numero].childNodes[0].textContent.split(" ").join("");
@@ -75,6 +77,13 @@ function showText(numero){
         document.getElementById('see').style.display = 'none';
         var element = document.getElementById('text_text');
         element.classList.remove("blur");
+
+        if ('speechSynthesis' in window && sonido == true) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.lang = 'es';
+            msg.text = text;
+            window.speechSynthesis.speak(msg);
+        }
     }
     document.getElementById('text_character').textContent = character;
     document.getElementById('text_text').textContent = text;
@@ -108,4 +117,14 @@ function seePhrase(){
     document.getElementById('see').style.display = 'none';
     var element = document.getElementById('text_text');
     element.classList.remove("blur");
+}
+
+function sound(){
+    if (sonido){
+        sonido= false;
+        document.getElementById('sonido').textContent = 'Sonido OFF';
+    } else {
+        sonido= true;
+        document.getElementById('sonido').textContent = 'Sonido ON';
+    }
 }
