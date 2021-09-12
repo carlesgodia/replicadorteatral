@@ -73,3 +73,8 @@ p#text_text {
   font-size: larger;
   text-align: left;
 }
+
+.blur {
+  color: transparent;
+  text-shadow: 0 0 5px white;
+}
