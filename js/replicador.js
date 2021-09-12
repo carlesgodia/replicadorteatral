@@ -49,11 +49,12 @@ function characters(){
 
 function changeFunc() {
     document.getElementById('3part').style.display = 'block';
+    document.getElementById('see').style.display = 'none';
     document.getElementById('2part').style.display = 'none';
 
     var selectBox = document.getElementById("selectBox");
     main_char = selectBox.options[selectBox.selectedIndex].value;
-    
+
     showText(num);
 }
 
@@ -67,11 +68,13 @@ function showText(numero){
     }
 
     if (character == main_char){
-        document.getElementById('text_character').style.opacity = "30%";
-        document.getElementById('text_text').style.opacity = "30%";
+        document.getElementById('see').style.display = 'block';
+        var element = document.getElementById('text_text');
+        element.classList.add("blur");
     } else{
-        document.getElementById('text_character').style.opacity = "100%";
-        document.getElementById('text_text').style.opacity = "100%";
+        document.getElementById('see').style.display = 'none';
+        var element = document.getElementById('text_text');
+        element.classList.remove("blur");
     }
     document.getElementById('text_character').textContent = character;
     document.getElementById('text_text').textContent = text;
@@ -100,3 +103,9 @@ document.addEventListener('keyup', event => {
         next_replica()
     }
   });
+
+function seePhrase(){
+    document.getElementById('see').style.display = 'none';
+    var element = document.getElementById('text_text');
+    element.classList.remove("blur");
+}
