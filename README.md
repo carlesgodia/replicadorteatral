@@ -19,3 +19,6 @@ Faltan muchas cosas para hacer ya que está en una fase beta de desarrollo.
 - Poder avanzar escenas, ya que ahora siempre empieza por el principio.
 - Dicción vocal con algún text-to-speech.
 - Todo lo que se nos vaya ocurriendo... :)
+
+Haciendo clic en este enlace podréis verlo en funcionamiento.
+https://www.carlesgodia.com/replicador/
